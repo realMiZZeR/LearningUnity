@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7696513548106027147}
   - component: {fileID: 6017984432822361194}
   - component: {fileID: 4709363358228795742}
+  - component: {fileID: 1642787359333378342}
   m_Layer: 0
   m_Name: Rifle
   m_TagString: Untagged
@@ -108,6 +109,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 2704989738405235215}
+--- !u!114 &1642787359333378342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5192176021337987172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34a323bb73d12ea4aa0c6d3785f09fce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletVelocity: 40
+  _bulletPrefab: {fileID: 5194959703457931602, guid: 6cf7b0295bc588941921f0a629e3621c,
+    type: 3}
+  _bulletSpawnTransform: {fileID: 2704989738405235215}
 --- !u!1 &7767916550229440941
 GameObject:
   m_ObjectHideFlags: 0
