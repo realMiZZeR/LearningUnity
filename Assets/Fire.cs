@@ -25,8 +25,6 @@ public class Fire : MonoBehaviour
             enter[i] = p;
         }
 
-        Debug.Log(numEnter);
-
         ps.SetTriggerParticles(ParticleSystemTriggerEventType.Enter, enter);
     }
 }
