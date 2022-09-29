@@ -10,7 +10,13 @@ public class BulletShooter : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        //if (_hasHit) return;
+        var enemy = collision.gameObject.GetComponent<Enemy>();
+        if (enemy)
+        {
+            enemy.OnHit();
+        }
+
+        if (_hasHit) return;
 
         _hasHit = true;
 
@@ -18,14 +24,6 @@ public class BulletShooter : MonoBehaviour
         if(rb)
         {
             rb.useGravity = true;
-
-            Debug.Log(collision.gameObject.name);
-
-            var enemy = collision.gameObject.GetComponent<Enemy>();
-            if (enemy)
-            {
-                enemy.OnHit();
-            }
             
             if(collision.gameObject.tag == "Markable")
             {

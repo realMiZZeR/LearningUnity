@@ -1,19 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Water : MonoBehaviour
 {
     public float repulsiveForce;
+    public Color wetColor;
 
-    private MeshRenderer _currentMesh;
-    private Color _meshColor;
+    private Color _enterColor;
 
     private void OnTriggerEnter(Collider other)
     {
-        _currentMesh = other.GetComponent<MeshRenderer>();
-        _meshColor = _currentMesh.material.color;
-        _currentMesh.material.color = Color.blue;
+        if(other.TryGetComponent<Renderer>(out Renderer renderer))
+        {
+            _enterColor = renderer.material.color;
+            Soak(renderer);
+        }
     }
 
     private void OnTriggerStay(Collider other)
@@ -25,6 +25,26 @@ public class Water : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        _currentMesh.material.color = _meshColor;
+        if (other.TryGetComponent<Renderer>(out Renderer renderer))
+        {
+            // Dry(renderer);
+        }
+    }
+
+    private void Soak(Renderer renderer)
+    {
+        if(renderer)
+        {
+            renderer.material.color = wetColor;
+        }
+        
+    }
+
+    private void Dry(Renderer renderer)
+    {
+        if(renderer)
+        {
+            renderer.material.color = _enterColor;
+        }
     }
 }

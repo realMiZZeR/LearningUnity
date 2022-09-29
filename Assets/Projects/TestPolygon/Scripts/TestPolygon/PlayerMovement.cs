@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -32,6 +30,17 @@ public class PlayerMovement : MonoBehaviour
         Sit();
         Jump();
         Falling();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.layer == LayerMask.NameToLayer("Water"))
+        {
+            if(Input.GetKey(KeyCode.Space))
+            {
+                _velocity.y += 0.3f;
+            }
+        }
     }
 
     private void Move()
